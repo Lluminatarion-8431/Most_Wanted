@@ -43,9 +43,11 @@ function mainMenu(person, people){
     break;
     case "family":
     // TODO: get person's family
+    displayFamily(person, people)
     break;
     case "descendants":
     // TODO: get person's descendants
+    displayDescendants(person, people)
     break;
     case "restart":
     app(people); // restart
