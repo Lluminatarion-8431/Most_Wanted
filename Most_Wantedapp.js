@@ -105,6 +105,9 @@ function displayFamily(person, people){
   let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
   // TODO: finish getting the rest of the information to display
+  let parent = displayParents(person, people);
+  let spouse = displaySpouse(person, people);
+  let siblings = displaySiblings(person, people);
 
   personInfo = "Parents: " + parent + "\n";
   personInfo += "Siblings: " + siblings + "\n";
