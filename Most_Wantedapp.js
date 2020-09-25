@@ -91,6 +91,14 @@ function displayPerson(person){
   alert(personInfo);
 }
 
+function displayFamily(person, people){
+  // print all of the information about a person:
+  // height, weight, age, name, occupation, eye color.
+  let personInfo = "First Name: " + person.firstName + "\n";
+  personInfo += "Last Name: " + person.lastName + "\n";
+  // TODO: finish getting the rest of the information to display
+  alert(personInfo);
+}
 // function that prompts and validates user input
 function promptFor(question, valid){
   do{
