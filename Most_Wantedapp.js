@@ -60,36 +60,49 @@ function mainMenu(person, people){
 }
 
 
-function searchForTrait(people){
-  let searchCriteria = promptFor("What trait(s) did you want to search by(separated by comma)? (gender, dob, weight, height, eyeColor, occupation)", chars);
-  
+function searchForTraits(people){
+  let searchCriteria = promptFor("What trait(s) did you want to search by(separated by comma)? (gender, dob, weight, height, eyeColor, occupation, finished (when you are done))", chars);
+  let searchedPeople = people;
+  let searching = true;
 
   switch(searchCriteria){
      
     case "gender":
-      searchByGender();
+      searchedPeople = searchByGender(people);
       break;
     case "dob":
-      searchByDob();
+      searchedPeople = searchByDob(people);
       break;
     case "weight":
-      searchByWeight();
+      searchedPeople = searchByWeight(people);
       break;
 
     case "height":
-      searchByHeight();
+      searchedPeople = searchByHeight(people);
       break;
 
     case "eyeColor":
-      searchByEyeColor();
+      searchedPeople = searchByEyeColor(people);
       break;
 
     case "occupation":
-      searchByOccupation();
+      searchedPeople = searchByOccupation(people);
+      break;
 
-    case "Finished":
+    case "finished":
+      searching = false;
+      break;
+
+     
+
 
   }
+
+  if(searching){
+    return searchByTraits(searchedPeople);
+  }
+
+  return searchedPeople
 }
 
 function searchByName(people){
