@@ -100,14 +100,22 @@ function displayPerson(person){
 }
 
 function displayFamily(person, people){
-  // print all of the information about a person:
-  // height, weight, age, name, occupation, eye color.
-  let personInfo = "First Name: " + person.firstName + "\n";
-  personInfo += "Last Name: " + person.lastName + "\n";
-  // TODO: finish getting the rest of the information to display
+  let personFamilyInfo;
   let parent = displayParents(person, people);
   let spouse = displaySpouse(person, people);
   let siblings = displaySiblings(person, people);
+  function displayParents(person, people){
+    let parentsToArray = [];
+    let parentsToReturn = "";
+    parentsToArray = people.filter(function(el){
+      if (el.id === person.parents[0] || el.id === person.parents[1]) {
+        return true;
+      }
+    });
+    parentsToReturn += parentsToArray[0].firstName + " " + parentsToArray[0].lastName + ", " + parentsToArray[1].firstName + " " + parentsToArray[1].lastName;
+    return parentsToReturn;
+  }
+
 
   personInfo = "Parents: " + parent + "\n";
   personInfo += "Siblings: " + siblings + "\n";
