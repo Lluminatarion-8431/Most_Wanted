@@ -165,7 +165,19 @@ function displayDescendants(person, people)
     }
     return descendantsToReturn;
   }
+  function getDescendants(person, people) {
+    let descendantsToArray = [];  
+    descendantsToArray = people.filter(function (el) {
+        if (el.parents[0] === person.id || el.parents[1] === person.id) {
+          return true;
+        }
+    }); 
+    return descendantsToArray;
+  }
   
+  personDescendantsInfo += "Descendants: " + findDescendantsToDisplay + "\n";
+  alert(personDescendantsInfo);
+  app(people);
 }
 
 // function that prompts and validates user input
