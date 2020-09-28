@@ -99,12 +99,13 @@ function displayPerson(person){
   alert(personInfo);
 }
 
-function displayFamily(person, people){
+function displayFamily(person, people)
+{
   let personFamilyInfo;
   let parent = displayParents(person, people);
   let spouse = displaySpouse(person, people);
   let siblings = displaySiblings(person, people);
-  
+
   function displayParents(person, people){
     let parentsToArray = [];
     let parentsToReturn = "";
@@ -117,7 +118,8 @@ function displayFamily(person, people){
     return parentsToReturn;
   }
 
-  function displaySiblings(person, people){
+  function displaySiblings(person, people)
+  {
     let siblingsToArray = [];
     let siblingsToReturn = "";
     siblingsToArray = people.filter(function(el){
@@ -139,11 +141,10 @@ function displayFamily(person, people){
     }
     return siblingsToReturn;
   }
-
-  personInfo = "Parents: " + parent + "\n";
-  personInfo += "Siblings: " + siblings + "\n";
-  personInfo += "Spouse: " + spouse + "\n";
-  alert(personInfo);
+  personFamilyInfo = "Parents: " + parent + "\n";
+  personFamilyInfo += "Siblings: " + siblings + "\n";
+  personFamilyInfo += "Spouse: " + spouse + "\n";
+  alert(personFamilyInfo);
 }
 // function that prompts and validates user input
 function promptFor(question, valid){
