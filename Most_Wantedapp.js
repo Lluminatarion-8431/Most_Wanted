@@ -15,8 +15,8 @@ function app(people){
       // TODO: search by traits
       searchResults = searchByTraits(people);
       break;
-      default:
-    app(people); // restart app
+    default:
+      app(people); // restart app
       break;
   }
   
