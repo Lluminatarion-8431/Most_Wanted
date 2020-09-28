@@ -81,7 +81,7 @@ function searchForTrait(people){
 
     case "parents":
 
-    case "current ":
+    case "current spouse":
 
   }
 }
@@ -100,6 +100,19 @@ function searchByName(people){
   })[0]
   // TODO: find the person using the name they entered
   return foundPerson;
+}
+
+function searchByGender(){
+  let gender = promptFor("What is the gender you are searching for?", chars)
+  let genderChosen = people.filter(function(person){
+    if(person.gender === gender){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return genderChosen;
 }
 
 // alerts a list of people
