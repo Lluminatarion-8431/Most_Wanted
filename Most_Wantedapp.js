@@ -61,27 +61,33 @@ function mainMenu(person, people){
 
 
 function searchForTrait(people){
-  let searchCriteria = promptFor("What trait(s) did you want to search by(separated by comma)? (id, gender, dob, weight, height, eyeColor, occupation, parents, currentSpouse)", chars);
+  let searchCriteria = promptFor("What trait(s) did you want to search by(separated by comma)? (gender, dob, weight, height, eyeColor, occupation)", chars);
   
 
   switch(searchCriteria){
-    case "id":
      
     case "gender":
-
+      searchByGender();
+      break;
     case "dob":
-
+      searchByDob();
+      break;
     case "weight":
+      searchByWeight();
+      break;
 
     case "height":
+      searchByHeight();
+      break;
 
     case "eyeColor":
+      searchByEyeColor();
+      break;
 
     case "occupation":
+      searchByOccupation();
 
-    case "parents":
-
-    case "current spouse":
+    case "Finished":
 
   }
 }
@@ -113,6 +119,71 @@ function searchByGender(){
     }
   })
   return genderChosen;
+}
+
+function searchByDob(){
+  let dob = promptFor("What is the date of birth you are searching for? <x/x/xxxx>", chars)
+  let dobChosen = people.filter(function(person){
+    if(person.dob === dob){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return dobChosen;
+}
+
+function searchByOccupation(){
+  let occupation = promptFor("What is the occupation you are searching for?", chars)
+  let occupationChosen = people.filter(function(person){
+    if(person.occupation === occupation){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return occupationChosen;
+}
+
+function searchByEyeColor(){
+  let eyeColor = promptFor("What is the eye color you are searching for?", chars)
+  let eyeColorChosen = people.filter(function(person){
+    if(person.eyeColor === eyeColor){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return eyeColorChosen;
+}
+
+function searchByWeight(){
+  let weight = promptFor("What is the weight you are searching for?", chars)
+  let weightChosen = people.filter(function(person){
+    if(person.weight === weight){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return weightChosen;
+}
+
+function searchByHeight(){
+  let height = promptFor("What is the height you are searching for?", chars)
+  let heightChosen = people.filter(function(person){
+    if(person.height === height){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return heightChosen;
 }
 
 // alerts a list of people
