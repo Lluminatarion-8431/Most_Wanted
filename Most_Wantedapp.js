@@ -59,6 +59,33 @@ function mainMenu(person, people){
   }
 }
 
+
+function searchForTrait(people){
+  let searchCriteria = promptFor("What trait(s) did you want to search by(separated by comma)? (id, gender, dob, weight, height, eyeColor, occupation, parents, currentSpouse)", chars);
+  
+
+  switch(searchCriteria){
+    case "id":
+     
+    case "gender":
+
+    case "dob":
+
+    case "weight":
+
+    case "height":
+
+    case "eyeColor":
+
+    case "occupation":
+
+    case "parents":
+
+    case "current spouse":
+
+  }
+}
+
 function searchByName(people){
   let firstName = promptFor("What is the person's first name?", chars);
   let lastName = promptFor("What is the person's last name?", chars);
@@ -73,6 +100,19 @@ function searchByName(people){
   })[0]
   // TODO: find the person using the name they entered
   return foundPerson;
+}
+
+function searchByGender(){
+  let gender = promptFor("What is the gender you are searching for?", chars)
+  let genderChosen = people.filter(function(person){
+    if(person.gender === gender){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return genderChosen;
 }
 
 // alerts a list of people
