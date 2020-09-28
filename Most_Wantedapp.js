@@ -97,7 +97,7 @@ function searchByName(people){
     else{
       return false;
     }
-  })
+  })[0]
   // TODO: find the person using the name they entered
   return foundPerson;
 }
@@ -174,10 +174,38 @@ function displayFamily(person, people)
   alert(personFamilyInfo);
 }
 
-function displayDescendants(person, people){
+function displayDescendants(person, people)
+{
   let findDescendantsToDisplay = findDescendants(person, people);
   let personDescendantsInfo;
+
+  function findDescendants(person, people) 
+  {
+    let descendant = getDescendants(person, people);
+    let descendantsToReturn = ""; 
+    for (let i = 0; i < descendant.length; i++) {
+        descendantsToReturn += descendant[i].firstName + " " + descendant[i].lastName + ". ";  
+        if (i >= 0) {
+            let grandChildren = findDescendants(descendant[i], people);
+            descendantsToReturn += grandChildren;
+        }
+    }
+    return descendantsToReturn;
   }
+  function getDescendants(person, people) {
+    let descendantsToArray = [];  
+    descendantsToArray = people.filter(function (el) {
+        if (el.parents[0] === person.id || el.parents[1] === person.id) {
+          return true;
+        }
+    }); 
+    return descendantsToArray;
+  }
+  
+  personDescendantsInfo += "Descendants: " + findDescendantsToDisplay + "\n";
+  alert(personDescendantsInfo);
+  app(people);
+}
 
 // function that prompts and validates user input
 function promptFor(question, valid){
