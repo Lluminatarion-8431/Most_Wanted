@@ -146,6 +146,12 @@ function displayFamily(person, people)
   personFamilyInfo += "Spouse: " + spouse + "\n";
   alert(personFamilyInfo);
 }
+
+function displayDescendants(person, people){
+  let findDescendantsToDisplay = findDescendants(person, people);
+  let personDescendantsInfo;
+  }
+
 // function that prompts and validates user input
 function promptFor(question, valid){
   do{
