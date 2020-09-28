@@ -60,7 +60,7 @@ function mainMenu(person, people){
 }
 
 
-function searchForTraits(people){
+function searchByTraits(people){
   let searchCriteria = promptFor("What trait(s) did you want to search by(separated by comma)? (gender, dob, weight, height, eyeColor, occupation, finished (when you are done))", chars);
   let searchedPeople = people;
   let searching = true;
