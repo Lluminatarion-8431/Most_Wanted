@@ -223,6 +223,15 @@ function displayPerson(person){
   alert(personInfo);
 }
 
+function changeDOBToAge(people){
+  let getPeopleAge = people.map(function(el){
+    let personDOBToCompare = new Date(el.dob);
+    let todaysDateForCompare = new Date(); 
+    let comparedDates = todaysDateForCompare - personDOBToCompare;
+
+  });
+}
+
 function displayFamily(person, people)
 {
   let personFamilyInfo;
