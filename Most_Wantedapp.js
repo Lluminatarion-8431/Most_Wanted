@@ -104,6 +104,7 @@ function displayFamily(person, people){
   let parent = displayParents(person, people);
   let spouse = displaySpouse(person, people);
   let siblings = displaySiblings(person, people);
+  
   function displayParents(person, people){
     let parentsToArray = [];
     let parentsToReturn = "";
@@ -116,6 +117,28 @@ function displayFamily(person, people){
     return parentsToReturn;
   }
 
+  function displaySiblings(person, people){
+    let siblingsToArray = [];
+    let siblingsToReturn = "";
+    siblingsToArray = people.filter(function(el){
+      if (el.parents.length === 0) {
+        return false;
+      }
+      else if (el === person) {
+        return false;
+      }
+      else if (el.parents[0] === person.parents[0] || el.parents[0] === person.parents[1]) {
+        return true;
+      }
+      else if (el.parents[1] === person.parents[0] || el.parents[1] === person.parents[1]) {
+        return true;
+      }
+    });
+    for (var i = 0; i < siblingsToArray.length; i++) {
+      siblingsToReturn += siblingsToArray[i].firstName + " " + siblingsToArray[i].lastName + ". ";
+    }
+    return siblingsToReturn;
+  }
 
   personInfo = "Parents: " + parent + "\n";
   personInfo += "Siblings: " + siblings + "\n";
